@@ -1,0 +1,36 @@
+# 课件 / 教材原件（他人版权 + 体积大）：一律不进仓库。
+# 自己要用的课件放仓库外，或放一个被本文件忽略的目录（例如 试验PPT/）。
+*.pdf
+*.pptx
+*.ppt
+*.docx
+
+# 使用者放进来的陪练图片（版权与体积都归使用者）。列名而非通配，避免误伤交付物里的图。
+pet.jpg
+pet.png
+pet.jpeg
+pet.webp
+pet-bg.jpg
+pet-bg.png
+venti.jpg
+venti.png
+venti.jpeg
+venti.webp
+# 从别处抓来的图（来源或授权不明的网图、同人图）
+v2-*.jpg
+v2-*.png
+
+# 校验与练手过程中的临时件（整个脚手架目录一起忽略：探针副本、DOM 转储、截图、练手产出）
+# 用目录级规则而不是 *_probe_*.html 这类通配，避免误伤将来放进 docs/ 或交付目录的同名文件
+_verify/
+_practice/
+
+# 系统与编辑器杂项
+Thumbs.db
+desktop.ini
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+.vscode/
+.idea/

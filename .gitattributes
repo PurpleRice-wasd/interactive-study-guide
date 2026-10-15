@@ -1,0 +1,4 @@
+# 二进制文件别做行尾转换（第三方素材必须保持逐字节一致，许可校验才对得上）
+*.png binary
+*.jpg binary
+*.ico binary
