@@ -633,6 +633,11 @@
   /* ---------------- 题库 ---------------- */
   var BANK=[];
   Array.prototype.forEach.call(document.querySelectorAll('script[data-bank]'),function(s){
+    /* 这里必须打上"已读过"的标记：DOMContentLoaded 时的 scanNewBanks() 靠它跳过已处理的段。
+       少了这一行，题库会被**整份渲染两遍**——页面上题卡翻倍、顶部总数翻倍（2 道题显示 0/4），
+       而探针查不出来：它插在 ⟨/body⟩ 前、赶在 DOMContentLoaded 之前执行，那一刻只有一份。
+       骨架页自己就中过这个招，只有截图才看得出来。 */
+    s.__isgSeen=1;
     try{ BANK=BANK.concat(JSON.parse(s.textContent)); }
     catch(e){ console.error('题库解析失败：',s.id,e); }
   });

@@ -59,6 +59,9 @@
 3. **写题库**：若干 `<script data-bank type="application/json">` 块，一段一个单元；字段见
    [`references/quiz-engine.md`](skills/interactive-study-guide/references/quiz-engine.md)。
    建议用 Python `json.dumps(ensure_ascii=False)` 生成并 `json.loads` 回读校验，别手写转义。
+   **一章 ≥40 个作答点时，skill 会默认开两个子代理来做这一步**：一个出题、一个独立重算审题
+   （探针只能验判分逻辑，验不了"答案本身对不对"）。分工、提示骨架与"素材落盘"的省 token 约定见
+   [`references/subagents.md`](skills/interactive-study-guide/references/subagents.md)。
 4. **写演示（2–3 个）**：挑「最容易想歪、最适合用拖拽建立直觉」的量；读数与曲线都由公式现算现画。
 5. **拼页面**：复制
    [`assets/page-skeleton.html`](skills/interactive-study-guide/assets/page-skeleton.html) 起步
@@ -86,6 +89,7 @@ skills/interactive-study-guide/
 │   └── sync-skeleton.py         # 资产 → 骨架内联副本的同步器（默认只检查）
 ├── references/
 │   ├── quiz-engine.md           # 题库字段表、判分规则、必备 DOM、题库字段校验
+│   ├── subagents.md             # 两个内置子代理（出题 / 独立审题）的分工与提示骨架
 │   ├── pet-guide.md             # 陪练规范：形象来源、交互约定、台词键位表与四种注入方式
 │   ├── demo-guide.md            # 演示选材、平面矢量图画法约定、曲线面板防裁切
 │   ├── build-and-verify.md      # 合体脚本做法 + 无头校验配方（十一项必查）
